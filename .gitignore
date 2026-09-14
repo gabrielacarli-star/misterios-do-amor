@@ -1,0 +1,41 @@
+# Dependencias e builds
+node_modules/
+dist/
+.cache/
+
+# Ambiente e segredos
+.env
+.env.local
+.env.*.local
+*.secret.php
+
+# Bancos de dados, dados e transacoes locais
+data.json
+paid-orders.json
+analytics/*.json
+contato/purchases.db
+contato/templo.sqlite*
+contato/schedules.json
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs
+*.log
+*_log.txt
+webhook_log.txt
+
+# Backups e arquivos compactados
+*.zip
+*.tar.gz
+*.rar
+Sitenovo.zip
+
+# Dumps e arquivos temporarios de terceiros
+saveweb2zip-*/
+
+# Sistema e IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

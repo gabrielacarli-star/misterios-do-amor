@@ -1,0 +1,7 @@
+Options -Indexes
+
+<FilesMatch "^(events\.json|sessions\.json)$">
+  Order allow,deny
+  Deny from all
+  Require all denied
+</FilesMatch>
