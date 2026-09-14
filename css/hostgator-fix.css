@@ -1,0 +1,8 @@
+.reveal-hidden {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.reveal-in {
+  opacity: 1 !important;
+}
