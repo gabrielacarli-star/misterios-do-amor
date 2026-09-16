@@ -146,7 +146,19 @@ fbq('init', '2174115180183763');
 fbq('track', 'PageView');
 </script><noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=2174115180183763&ev=PageView&noscript=1"
-/></noscript><!-- End Meta Pixel Code --></head>
+/></noscript><!-- End Meta Pixel Code --><script>
+(function () {
+  try {
+    var pacote = JSON.parse(localStorage.getItem("templo_luz_pacote_pago") || "null");
+    var value = pacote && pacote.amount ? Number(pacote.amount) : 0;
+    var name = pacote && pacote.title ? pacote.title : "Leitura Amorosa";
+    if (window.fbq) {
+      window.fbq("track", "Purchase", { value: value, currency: "BRL", content_name: name });
+    }
+    localStorage.removeItem("templo_luz_pacote_pago");
+  } catch (error) {}
+})();
+</script></head>
 <body>
   <main class="page">
     <section class="card" aria-live="polite">

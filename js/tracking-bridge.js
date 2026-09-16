@@ -97,9 +97,20 @@
     } catch (error) {}
   }
 
+  function trackEvent(eventName, payload, isCustom) {
+    payload = payload || {};
+    try {
+      if (window.fbq) window.fbq(isCustom ? "trackCustom" : "track", eventName, payload);
+    } catch (error) {}
+    try {
+      if (window.ttq) window.ttq.track(eventName, payload);
+    } catch (error) {}
+  }
+
   window.TemploTracking = {
     read: read,
-    trackInitiateCheckout: trackInitiateCheckout
+    trackInitiateCheckout: trackInitiateCheckout,
+    trackEvent: trackEvent
   };
 
   saveFromUrl();

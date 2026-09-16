@@ -316,6 +316,9 @@
   function navigateToStep(stepName) {
     injectMotionStyles();
     try {
+      if (window.TemploTracking) window.TemploTracking.trackEvent("QuizStep", { step: stepName }, true);
+    } catch (e) {}
+    try {
       history.pushState({ step: stepName }, "", window.location.pathname + "?step=" + encodeURIComponent(stepName));
     } catch (e) {}
 
@@ -449,6 +452,9 @@
     }
 
     if (name) saveName(name);
+    try {
+      if (window.TemploTracking) window.TemploTracking.trackEvent("Lead", { content_name: "Início do Quiz" });
+    } catch (e) {}
     navigateToStep("ente");
   }
 

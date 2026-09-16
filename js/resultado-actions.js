@@ -491,6 +491,11 @@
     closePaymentModal();
     var state = readState();
     var info = packageInfo(selectedAmount);
+    try {
+      if (window.TemploTracking) {
+        window.TemploTracking.trackEvent("PaymentModalOpened", { currency: "BRL", value: selectedAmount, content_name: info.tracking }, true);
+      }
+    } catch (error) {}
     var overlay = document.createElement("div");
     overlay.id = "tdl-result-payment-modal";
     overlay.className = "fixed inset-0 z-[280] overflow-y-auto bg-black/75 px-3 py-4 backdrop-blur-md sm:px-4 sm:py-6";
@@ -704,6 +709,14 @@
     }
   }, true);
 
+  function trackViewContent() {
+    try {
+      if (window.TemploTracking) {
+        window.TemploTracking.trackEvent("ViewContent", { content_name: "Resultado da Leitura", content_category: "quiz_result" });
+      }
+    } catch (error) {}
+  }
+
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", function () {
       hydrateResultSchedule();
@@ -713,6 +726,7 @@
       protectResultPixOptions();
       startHardFixLoop();
       wireFaq();
+      trackViewContent();
     });
   } else {
     hydrateResultSchedule();
@@ -722,6 +736,7 @@
     protectResultPixOptions();
     startHardFixLoop();
     wireFaq();
+    trackViewContent();
   }
   window.addEventListener("load", hydrateTestimonials);
   window.addEventListener("load", wireResultPix);
