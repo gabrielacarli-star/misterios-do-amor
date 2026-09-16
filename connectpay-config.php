@@ -3,8 +3,9 @@ declare(strict_types=1);
 
 $rawSecret = getenv('CONNECTPAY_API_SECRET') ?: ($_ENV['CONNECTPAY_API_SECRET'] ?? '');
 $rawRecipient = getenv('CONNECTPAY_RECIPIENT_ID') ?: ($_ENV['CONNECTPAY_RECIPIENT_ID'] ?? '');
+$rawUtmifyToken = getenv('UTMIFY_API_TOKEN') ?: ($_ENV['UTMIFY_API_TOKEN'] ?? '');
 
-if ((!$rawSecret || !$rawRecipient) && file_exists(__DIR__ . '/.env')) {
+if ((!$rawSecret || !$rawRecipient || !$rawUtmifyToken) && file_exists(__DIR__ . '/.env')) {
     $envLines = @file(__DIR__ . '/.env', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
     if (is_array($envLines)) {
         foreach ($envLines as $line) {
@@ -18,6 +19,7 @@ if ((!$rawSecret || !$rawRecipient) && file_exists(__DIR__ . '/.env')) {
                 $v = trim(trim($v), "\"'");
                 if ($k === 'CONNECTPAY_API_SECRET' && !$rawSecret) $rawSecret = $v;
                 if ($k === 'CONNECTPAY_RECIPIENT_ID' && !$rawRecipient) $rawRecipient = $v;
+                if ($k === 'UTMIFY_API_TOKEN' && !$rawUtmifyToken) $rawUtmifyToken = $v;
             }
         }
     }
@@ -26,9 +28,12 @@ if ((!$rawSecret || !$rawRecipient) && file_exists(__DIR__ . '/.env')) {
 define('CONNECTPAY_API_BASE', 'https://api.connectpay.vc');
 define('CONNECTPAY_API_SECRET', $rawSecret);
 define('CONNECTPAY_RECIPIENT_ID', $rawRecipient);
+define('UTMIFY_API_TOKEN', $rawUtmifyToken);
+define('UTMIFY_API_BASE', 'https://api.utmify.com.br');
 define('SITE_BASE_URL', getenv('SITE_BASE_URL') ?: 'https://templodaluz.larequilibrado.com');
 define('DATA_FILE', __DIR__ . '/data.json');
 define('PAID_ORDERS_FILE', __DIR__ . '/paid-orders.json');
+define('UTMIFY_LOG_FILE', __DIR__ . '/utmify_log.txt');
 
 function site_base_url(): string
 {
@@ -207,6 +212,133 @@ function register_paid_order(array $transaction): void
     }
 
     write_paid_orders($orders);
+    utmify_report_order($transaction, $record);
+}
+
+function utmify_log(string $message): void
+{
+    @file_put_contents(UTMIFY_LOG_FILE, '[' . date('c') . '] ' . $message . "\n", FILE_APPEND);
+}
+
+function utmify_iso_to_datetime(?string $iso): string
+{
+    if (!$iso) {
+        return date('Y-m-d H:i:s');
+    }
+    $timestamp = strtotime($iso);
+    return $timestamp ? date('Y-m-d H:i:s', $timestamp) : date('Y-m-d H:i:s');
+}
+
+function utmify_report_order(array $transaction, array $record): void
+{
+    if (UTMIFY_API_TOKEN === '') {
+        return;
+    }
+
+    $externalId = (string)($record['external_id'] ?? '');
+    $transactionId = (string)($record['transaction_id'] ?? '');
+    $orderId = $externalId !== '' ? $externalId : $transactionId;
+    if ($orderId === '') {
+        return;
+    }
+
+    $tracking = $transaction['tracking'] ?? [];
+    if (!is_array($tracking)) {
+        $tracking = [];
+    }
+
+    $amount = (float)($record['amount'] ?? 0);
+    $priceInCents = (int)round($amount * 100);
+
+    $payload = [
+        'orderId' => $orderId,
+        'platform' => 'ConnectPay',
+        'paymentMethod' => 'pix',
+        'status' => 'paid',
+        'createdAt' => utmify_iso_to_datetime($transaction['created_at'] ?? null),
+        'approvedDate' => date('Y-m-d H:i:s'),
+        'refundedAt' => null,
+        'customer' => [
+            'name' => (string)($transaction['name'] ?? $record['name'] ?? 'Cliente Templo da Luz Amorosa'),
+            'email' => (string)($transaction['email'] ?? $record['email'] ?? ''),
+            'phone' => (string)($transaction['phone'] ?? $record['phone'] ?? ''),
+            'document' => (string)($transaction['document'] ?? ''),
+        ],
+        'products' => [[
+            'id' => 'tarot_amoroso_' . str_replace('.', '_', (string)$amount),
+            'name' => (string)($record['package']['title'] ?? 'Leitura Amorosa'),
+            'planId' => null,
+            'planName' => null,
+            'quantity' => 1,
+            'priceInCents' => $priceInCents,
+        ]],
+        'trackingParameters' => [
+            'src' => null,
+            'sck' => $tracking['sck'] ?? null,
+            'utm_source' => $tracking['utm_source'] ?? null,
+            'utm_campaign' => $tracking['utm_campaign'] ?? null,
+            'utm_medium' => $tracking['utm_medium'] ?? null,
+            'utm_content' => $tracking['utm_content'] ?? null,
+            'utm_term' => $tracking['utm_term'] ?? null,
+        ],
+        'commission' => [
+            'totalPriceInCents' => $priceInCents,
+            'gatewayFeeInCents' => 0,
+            'userCommissionInCents' => $priceInCents,
+        ],
+        'isTest' => false,
+    ];
+
+    $body = json_encode($payload, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+    $url = UTMIFY_API_BASE . '/api-credentials/orders';
+    $httpCode = 0;
+    $response = false;
+
+    if (function_exists('curl_init')) {
+        $ch = curl_init($url);
+        curl_setopt_array($ch, [
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_POST => true,
+            CURLOPT_HTTPHEADER => [
+                'x-api-token: ' . UTMIFY_API_TOKEN,
+                'Content-Type: application/json',
+            ],
+            CURLOPT_POSTFIELDS => $body,
+            CURLOPT_TIMEOUT => 15,
+        ]);
+        $response = curl_exec($ch);
+        $httpCode = (int)curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        $curlError = curl_error($ch);
+        curl_close($ch);
+        if ($response === false) {
+            utmify_log("ERRO curl ao reportar pedido {$orderId}: {$curlError}");
+            return;
+        }
+    } else {
+        $context = stream_context_create([
+            'http' => [
+                'method' => 'POST',
+                'header' => "x-api-token: " . UTMIFY_API_TOKEN . "\r\nContent-Type: application/json\r\n",
+                'content' => $body,
+                'timeout' => 15,
+                'ignore_errors' => true,
+            ],
+        ]);
+        $response = @file_get_contents($url, false, $context);
+        if (isset($http_response_header[0]) && preg_match('/\s(\d{3})\s/', $http_response_header[0], $matches)) {
+            $httpCode = (int)$matches[1];
+        }
+        if ($response === false) {
+            utmify_log("ERRO file_get_contents ao reportar pedido {$orderId}");
+            return;
+        }
+    }
+
+    if ($httpCode < 200 || $httpCode >= 300) {
+        utmify_log("FALHA ({$httpCode}) ao reportar pedido {$orderId}: {$response}");
+    } else {
+        utmify_log("OK ({$httpCode}) pedido {$orderId} reportado à Utmify");
+    }
 }
 
 function connectpay_get_transaction(string $transactionId): ?array
