@@ -4,8 +4,62 @@
   var pixInitialized = false;
   var pixObserverTimer = null;
 
+  var MILENA_AUDIO = {
+    welcome: "audio/milena-boas-vindas.mp3",
+    howToPay: "audio/milena-como-pagar-pix.mp3",
+    pending: "audio/milena-pix-pendente.mp3",
+    trouble: "audio/milena-problema-pagamento.mp3"
+  };
+
   function hasText(element, text) {
     return (element.textContent || "").toLowerCase().indexOf(text.toLowerCase()) !== -1;
+  }
+
+  function createAudioPlayer(src, label) {
+    var wrap = document.createElement("div");
+    wrap.className = "flex items-center gap-3 rounded-2xl border border-amber-200 bg-amber-50/60 p-3";
+
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "tdl-milena-play flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#7f1d1d] text-white text-base shadow-md";
+    btn.textContent = "▶";
+    btn.setAttribute("aria-label", "Tocar áudio da Milena");
+
+    var text = document.createElement("span");
+    text.className = "text-[12px] font-bold text-[#5c3a1a] leading-snug";
+    text.textContent = label;
+
+    var audio = document.createElement("audio");
+    audio.src = src;
+    audio.preload = "auto";
+
+    wrap.appendChild(btn);
+    wrap.appendChild(text);
+    wrap.appendChild(audio);
+
+    function setPlayingIcon(playing) {
+      btn.textContent = playing ? "❚❚" : "▶";
+    }
+
+    btn.addEventListener("click", function () {
+      if (audio.paused) {
+        audio.play().catch(function () {});
+      } else {
+        audio.pause();
+      }
+    });
+    audio.addEventListener("play", function () { setPlayingIcon(true); });
+    audio.addEventListener("pause", function () { setPlayingIcon(false); });
+    audio.addEventListener("ended", function () { setPlayingIcon(false); });
+
+    function tryAutoplay() {
+      var promise = audio.play();
+      if (promise && promise.catch) {
+        promise.catch(function () { setPlayingIcon(false); });
+      }
+    }
+
+    return { element: wrap, audio: audio, tryAutoplay: tryAutoplay };
   }
 
   function go(url) {
@@ -525,11 +579,14 @@
         '</div>' +
         '<div id="tdl-result-modal-pix" class="mt-4 hidden rounded-2xl border border-emerald-200 bg-emerald-50/60 p-3.5 text-center"></div>' +
         '<button type="button" id="tdl-result-confirm-pix" class="utmify-initiate-checkout mt-4 w-full rounded-2xl bg-gradient-to-r from-emerald-500 via-emerald-600 to-teal-600 px-5 py-4 text-sm font-black uppercase tracking-wide text-white shadow-xl shadow-emerald-600/25">❖ Confirmar PIX de ' + formatMoney(selectedAmount) + '</button>' +
+        '<div id="tdl-result-trouble-audio" class="mt-3"></div>' +
         '<p class="mt-3 text-center text-[11px] text-[#9a5a5a]">🛡 Ambiente protegido com criptografia de ponta a ponta (SSL 256-bit)</p>' +
       '</div>';
 
     document.body.appendChild(overlay);
     document.body.style.overflow = "hidden";
+    var troublePlayer = createAudioPlayer(MILENA_AUDIO.trouble, "Problema com o pagamento? Ouça a Milena");
+    overlay.querySelector("#tdl-result-trouble-audio").appendChild(troublePlayer.element);
     overlay.querySelectorAll("[data-close-payment]").forEach(function (item) {
       item.addEventListener("click", closePaymentModal);
     });
@@ -566,6 +623,7 @@
       '<div class="mx-auto inline-block rounded-2xl border-2 border-emerald-400 bg-white p-3 shadow-md"><img src="' + qrUrl(pix.pix_payload) + '" alt="QR Code PIX" width="220" height="220"></div>' +
       '<button type="button" id="tdl-result-copy-pix" class="mt-3 w-full rounded-2xl bg-emerald-600 px-4 py-3 text-xs font-black uppercase tracking-wider text-white shadow-lg">Copiar Código PIX Copia e Cola</button>' +
       '<textarea id="tdl-result-pix-code" readonly class="mt-2 h-20 w-full rounded-xl border border-emerald-200 bg-white p-2 text-[10px] text-stone-600">' + escapeHtml(pix.pix_payload) + '</textarea>' +
+      '<div id="tdl-result-howtopay-audio" class="mt-3"></div>' +
       '<p id="tdl-result-payment-status" class="mt-2 rounded-xl border border-blue-200 bg-blue-50 p-2 text-[11px] font-bold text-blue-800">PIX gerado. Após pagar no app do banco, volte para esta página. A confirmação envia você automaticamente para o chat da sua sessão.</p>';
 
     if (!box.parentElement) {
@@ -578,12 +636,20 @@
       document.execCommand("copy");
       this.textContent = "Código PIX Copiado";
     });
+
+    var howToPayPlayer = createAudioPlayer(MILENA_AUDIO.howToPay, "🔊 Ouça a Milena: como pagar o PIX");
+    box.querySelector("#tdl-result-howtopay-audio").appendChild(howToPayPlayer.element);
+    howToPayPlayer.tryAutoplay();
+
     box.scrollIntoView({behavior: "smooth", block: "center"});
   }
 
   function watchPayment(pix) {
     if (statusTimer) clearInterval(statusTimer);
+    var polls = 0;
+    var pendingAudioPlayed = false;
     statusTimer = setInterval(function () {
+      polls += 1;
       fetch("check-purchase.php?external_id=" + encodeURIComponent(pix.external_id) + "&transaction_id=" + encodeURIComponent(pix.transaction_id))
         .then(function (response) { return response.json(); })
         .then(function (status) {
@@ -599,6 +665,13 @@
             }, 1500);
           } else {
             box.textContent = "Aguardando confirmação do PIX... status atual: " + paymentStatusLabel(status.status);
+            if (!pendingAudioPlayed && polls >= 13 && box.parentElement) {
+              pendingAudioPlayed = true;
+              var pendingPlayer = createAudioPlayer(MILENA_AUDIO.pending, "🔊 Mensagem da Milena: seu PIX ficou pendente");
+              pendingPlayer.element.classList.add("mt-3");
+              box.parentElement.insertBefore(pendingPlayer.element, box);
+              pendingPlayer.tryAutoplay();
+            }
           }
         })
         .catch(function () {});
@@ -717,6 +790,20 @@
     } catch (error) {}
   }
 
+  function injectWelcomeAudio() {
+    if (document.getElementById("tdl-milena-welcome")) return;
+    var span = Array.prototype.slice.call(document.querySelectorAll("span")).find(function (item) {
+      return hasText(item, "Vela sagrada e horário reservados");
+    });
+    var anchor = span ? span.parentElement : null;
+    if (!anchor) return;
+    var player = createAudioPlayer(MILENA_AUDIO.welcome, "🔊 Ouça a Milena: sua mensagem de boas-vindas");
+    player.element.id = "tdl-milena-welcome";
+    player.element.classList.add("mx-4", "mt-4");
+    anchor.insertAdjacentElement("afterend", player.element);
+    player.tryAutoplay();
+  }
+
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", function () {
       hydrateResultSchedule();
@@ -727,6 +814,7 @@
       startHardFixLoop();
       wireFaq();
       trackViewContent();
+      injectWelcomeAudio();
     });
   } else {
     hydrateResultSchedule();
@@ -737,6 +825,7 @@
     startHardFixLoop();
     wireFaq();
     trackViewContent();
+    injectWelcomeAudio();
   }
   window.addEventListener("load", hydrateTestimonials);
   window.addEventListener("load", wireResultPix);
